@@ -1,0 +1,1 @@
+Position inside the trophy view sidebar for various stats and new content widgets.

@@ -1,0 +1,1 @@
+The ID that is associated with your <a href="https://login.amazon.com/manageApps" target="_blank">Amazon application</a> for this domain.

@@ -1,0 +1,9 @@
+{
+    "event_id": "templater_template_pre_render",
+    "execute_order": 10,
+    "callback_class": "ThemeHouse\\UserImprovements\\Listener\\Pub\\TemplaterTemplatePreRender",
+    "callback_method": "helpPageTrophies",
+    "active": true,
+    "hint": "public:_help_page_trophies",
+    "description": "public:_help_page_trophies"
+}

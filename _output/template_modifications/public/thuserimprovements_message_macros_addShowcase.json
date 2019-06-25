@@ -1,0 +1,9 @@
+{
+    "template": "message_macros",
+    "description": "Add trophy showcase.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/(<div class=\"message-userExtras\">\\s*<xf:contentcheck>.*?)(<\\/xf:contentcheck>)/s",
+    "replace": "$1\t<xf:if is=\"$xf.options.klUIPostbitShowcase\">\n\t\t\t\t\t\t<xf:macro name=\"showcase_display\" template=\"thuserimprovements_trophy_showcase_macros\" arg-user=\"{$user}\" arg-position=\"postbit\" />\n\t\t\t\t\t</xf:if>\n\t\t\t\t$2"
+}

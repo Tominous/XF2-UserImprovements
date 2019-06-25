@@ -1,0 +1,9 @@
+{
+    "template": "trophy_edit",
+    "description": "Add trophy category selection.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:textarearow name=\"description\"",
+    "replace": "<xf:include template=\"thuserimprovements_trophy_category_select\" />\n<xf:include template=\"thuserimprovements_trophy_icon_select\" />\n$0"
+}

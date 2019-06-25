@@ -1,0 +1,27 @@
+{
+    "group_name": "klUIUTL",
+    "title": "Progress bar",
+    "description": "Styling for the progress bar.",
+    "property_type": "css",
+    "css_components": [
+        "text",
+        "background",
+        "border",
+        "border_radius",
+        "padding",
+        "extra"
+    ],
+    "value_type": "",
+    "value_parameters": "",
+    "depends_on": "",
+    "value_group": "",
+    "property_value": {
+        "color": "@xf-paletteNeutral1",
+        "background-color": "@xf-paletteColor4",
+        "border-radius": "@xf-borderRadiusMedium",
+        "padding-right": "@xf-paddingMedium",
+        "padding-left": "@xf-paddingMedium",
+        "extra": "text-align: right;\ndisplay: inline-block;"
+    },
+    "display_order": 100
+}

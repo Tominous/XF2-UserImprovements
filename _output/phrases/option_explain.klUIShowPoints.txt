@@ -1,0 +1,1 @@
+Determines, whether trophy points are shown next to the trophy name. This is especially useful if you fit your trophies with images, as these will overwrite the points shown with icons.

@@ -1,0 +1,1 @@
+You may reactivate your account within the next {days} days after deactivation.

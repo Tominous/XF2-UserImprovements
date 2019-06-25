@@ -1,0 +1,6 @@
+{
+    "permission_type": "integer",
+    "interface_group_id": "klUI",
+    "display_order": 110,
+    "depend_permission_id": "klUIChangeUsername"
+}

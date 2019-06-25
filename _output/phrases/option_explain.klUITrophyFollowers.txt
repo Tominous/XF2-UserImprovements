@@ -1,0 +1,1 @@
+If enabled, will show all follow-up trophies that are still open below the current trophy level.

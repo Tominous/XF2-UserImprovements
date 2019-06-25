@@ -1,0 +1,9 @@
+{
+    "template": "member_macros",
+    "description": "Add profile view counter.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<!--[XF:stat_pairs:above_likes]-->",
+    "replace": "<xf:if is=\"$xf.options.klUiProfileViews && $user.th_view_count && $user.canViewTHUIProfileViewCount()\">\n\t<dl class=\"pairs pairs--rows pairs--rows--centered menu-fauxLinkRow\">\n\t\t<dt>{{ phrase('thuserimprovements_profile_views') }}</dt>\n\t\t<dd>\n\t\t\t{$user.th_view_count|number}\n\t\t</dd>\n\t</dl>\n</xf:if>\n$0"
+}

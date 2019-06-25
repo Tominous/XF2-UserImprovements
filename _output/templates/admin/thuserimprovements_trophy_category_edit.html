@@ -1,0 +1,29 @@
+<xf:if is="$category.isInsert()">
+	<xf:title>{{ phrase('thuserimprovements_add_trophy_category') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('thuserimprovements_edit_trophy_category:') }} {$category.title}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$category.isUpdate()">
+	<xf:button href="{{ link('trophies/thui-category/delete', $category) }}"
+		icon="delete" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('trophies/thui-category/save', $category) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:textboxrow name="trophy_category_id" value="{$category.trophy_category_id}"
+				maxlength="{{ max_length($category, 'trophy_category_id') }}"
+				label="{{ phrase('thuserimprovements_trophy_category_id') }}"
+				dir="ltr" />
+
+			<xf:textboxrow name="title" value="{{ $category.exists() ? $category.MasterTitle.phrase_text : '' }}"
+				label="{{ phrase('title') }}" />
+
+			<xf:macro template="display_order_macros" name="row"
+				arg-value="{$category.display_order}" />
+		</div>
+		<xf:submitrow sticky="true" icon="save" />
+	</div>
+
+</xf:form>

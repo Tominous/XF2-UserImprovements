@@ -1,0 +1,9 @@
+{
+    "event_id": "templater_template_pre_render",
+    "execute_order": 10,
+    "callback_class": "ThemeHouse\\UserImprovements\\Listener\\Pub\\TemplaterTemplatePreRender",
+    "callback_method": "memberAbout",
+    "active": true,
+    "hint": "public:member_about",
+    "description": "public:member_about"
+}

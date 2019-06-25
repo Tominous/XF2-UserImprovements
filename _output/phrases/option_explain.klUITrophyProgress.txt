@@ -1,0 +1,1 @@
+If enabled, will show a counter next to the trophy title when at least one predecessor or follower exists, showing how far into the trophy line the user is.

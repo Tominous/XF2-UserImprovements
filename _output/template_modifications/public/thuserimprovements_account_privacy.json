@@ -1,0 +1,9 @@
+{
+    "template": "account_privacy",
+    "description": "Add account privacy options.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "arg-label=\"{{ phrase('view_your_identities:') }}\" />",
+    "replace": "$0\n\n<xf:include template=\"thuserimprovements_account_privacy\" />"
+}

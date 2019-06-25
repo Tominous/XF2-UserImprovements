@@ -1,0 +1,17 @@
+<h4 class="block-textHeader">{{ phrase('trophies') }}</h4>
+<ol class="listPlain">
+	<xf:foreach loop="$trophies.uncategorized" value="$trophy">
+		<xf:macro template="thuserimprovements_trophy_macros" name="user_trophy_item" arg-trophy="{$trophy}" />
+	</xf:foreach>
+</ol>
+
+<xf:foreach loop="$trophyCategories" key="$category_id" value="$category">
+	<xf:if is="{$trophies.{$category_id}} is not empty">
+		<h4 class="block-textHeader">{$category.title}</h4>
+		<ol class="listPlain">
+			<xf:foreach loop="{$trophies.{$category_id}}" value="$trophy">
+				<xf:macro template="thuserimprovements_trophy_macros" name="user_trophy_item" arg-trophy="{$trophy}" />
+			</xf:foreach>
+		</ol>
+	</xf:if>
+</xf:foreach>

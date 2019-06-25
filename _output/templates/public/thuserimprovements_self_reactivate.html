@@ -1,0 +1,28 @@
+<xf:title>{{ phrase('thuserimprovements_reactivate_account') }}</xf:title>
+
+<xf:form class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="block-row">
+				<p>
+					{{ phrase('thuserimprovements_reactivate_account_question') }}
+				</p>
+				<xf:if is="$record.latest_restore_date <= $xf.time + 63072000">
+					<p>
+						{{ phrase('thuserimprovements_latest_restore_date') }}: <xf:date time="$record.latest_restore_date" />
+					</p>
+				</xf:if>
+			</div>
+		</div>
+		<dl class="formRow formSubmitRow formSubmitRow--sticky" data-xf-init="form-submit-row" style="height: 41.7143px;">
+			<dt></dt>
+			<dd>
+				<div class="formSubmitRow-main">
+					<div class="formSubmitRow-bar"></div>
+					<div class="formSubmitRow-controls"><button class="button button--primary button--icon"><span class="button-text">{{ phrase('thuserimprovements_reactivate_account') }}</span></button></div>
+				</div>
+			</dd>
+		</dl>
+	</div>
+	<xf:redirect />
+</xf:form>

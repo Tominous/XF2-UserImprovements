@@ -1,0 +1,13 @@
+{
+    "group_name": "klUIUsernameColors",
+    "title": "User name color 2",
+    "description": "",
+    "property_type": "value",
+    "css_components": [],
+    "value_type": "color",
+    "value_parameters": "",
+    "depends_on": "",
+    "value_group": "",
+    "property_value": "#1ABC9C",
+    "display_order": 200
+}

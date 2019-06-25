@@ -1,0 +1,68 @@
+<xf:title>{$trophyCategory.title}</xf:title>
+
+<xf:breadcrumb href="{{ link('trophies') }}">{{ phrase('trophies') }}</xf:breadcrumb>
+
+<xf:css src="thuserimprovements_trophy_view.less" />
+
+<xf:macro template="thuserimprovements_trophy_progress_macros"
+	name="trophy_progress"
+	arg-trophies="{$trophies}"
+	arg-trophyProgressCriteria="{$trophyProgressCriteria}"
+	arg-progressValue="{$progressValue}" />
+
+<div class="block">
+	<div class="block-container">
+		<h2 class="block-tabHeader block-tabHeader--trophyTabs tabs hScroller" data-xf-init="tabs h-scroller" role="tablist"
+			data-panes=".js-trophyCategoryTabPanes" data-state="replace">
+			<span class="hScroller-scroll">
+				<!--[XF:tabs:start]-->
+				<a class="tabs-tab is-active"
+					role="tab" tabindex="0" aria-controls="trophies">{{ phrase('trophies') }}</a>
+				<!--[XF:tabs:after_trophies]-->
+				<xf:if is="{$trophyProgressCriteria.valueKey}">
+					<a class="tabs-tab"
+						role="tab" tabindex="1" aria-controls="{$trophyProgressCriteria.valueKey}">{$trophyProgressCriteria.statsPhrase}</a>
+				</xf:if>
+				<!--[XF:tabs:end]-->
+			</span>
+		</h2>
+	</div>
+</div>
+
+<ul class="block tabPanes js-trophyCategoryTabPanes">
+	<!--[XF:tab_panes:start]-->
+	<li class="is-active" role="tabpanel" id="trophies">
+		<xf:if is="$trophiesPrepared is not empty">
+			<div class="block-container">
+				<ol class="block-body">
+					<xf:foreach loop="$trophiesPrepared" value="$trophy">
+						<xf:macro template="thuserimprovements_trophy_macros" name="trophy_item" arg-trophy="{$trophy}" arg-showRecentlyAwardedUsers="{{ true }}" />
+					</xf:foreach>
+				</ol>
+				<div class="block-footer">
+					<xf:set var="$trophiesEarned" value="0" />
+					<xf:foreach loop="$trophiesPrepared" value="$trophy">
+						<xf:if is="$trophy.earned">
+							<xf:set var="{$trophiesEarned}" value="{{ $trophiesEarned + 1 }}" />
+						</xf:if>
+					</xf:foreach>
+					{{ phrase('thuserimprovements_own_x_out_of_y_trophies_in_this_category', {
+						'earned': $trophiesEarned,
+						'total': count($trophiesPrepared)
+					})}}
+				</div>
+			</div>
+		<xf:else />
+			<div class="blockMessage">{{ phrase('thuserimprovements_there_no_trophies_in_this_category') }}</div>
+		</xf:if>
+	</li>
+	<!--[XF:tab_panes:after_trophies]-->
+	<xf:if is="{$trophyProgressCriteria.valueKey}">
+		<li data-href="{{ link('trophies/stats/' . $trophyProgressCriteria.valueKey, '', $trophyProgressCriteria.additionalData) }}" role="tabpanel" aria-labelledby="{$trophyProgressCriteria.valueKey}">
+			<div class="blockMessage">{{ phrase('loading...') }}</div>
+		</li>
+	</xf:if>
+	<!--[XF:tab_panes:end]-->
+</ul>
+
+<xf:widgetpos id="thuserimprovements_trophy_category_view_sidebar" position="sidebar" />

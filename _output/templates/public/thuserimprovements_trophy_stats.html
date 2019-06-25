@@ -1,0 +1,21 @@
+<xf:title>{$title}</xf:title>
+
+<div class="block">
+	<xf:if is="$users is not empty">
+		<div class="block-container">
+			<ol class="block-body">
+				<xf:foreach loop="$users" key="$userId" value="$user">
+					<li class="block-row block-row--separated">
+						<xf:macro template="member_list_macros"
+							name="item"
+							arg-user="{{ $userKey ? $user.{$userKey} : $user }}"
+							arg-extraData="{$user.{$extraData}}"
+							arg-extraDataBig="{{ true }}" />
+					</li>
+				</xf:foreach>
+			</ol>
+		</div>
+	<xf:else />
+		<div class="block-row">{{ phrase('no_users_match_specified_criteria') }}</div>
+	</xf:if>
+</div>

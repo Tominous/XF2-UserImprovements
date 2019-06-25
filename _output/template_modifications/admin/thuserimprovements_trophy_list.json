@@ -1,0 +1,9 @@
+{
+    "template": "trophy_list",
+    "description": "Add trophy category add button.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "</xf:pageaction>",
+    "replace": "<xf:button href=\"{{ link('trophies/thui-category/add') }}\" icon=\"add\">{{ phrase('thuserimprovements_add_trophy_category') }}</xf:button>\n$0"
+}

@@ -1,0 +1,9 @@
+{
+    "event_id": "templater_macro_pre_render",
+    "execute_order": 10,
+    "callback_class": "ThemeHouse\\UserImprovements\\Listener\\Pub\\TemplaterMacroPreRender",
+    "callback_method": "thuserimprovementsTrophyMacrosUserTrophyItem",
+    "active": true,
+    "hint": "public:thuserimprovements_trophy_macros:user_trophy_item",
+    "description": "public:thuserimprovements_trophy_macros:user_trophy_item"
+}

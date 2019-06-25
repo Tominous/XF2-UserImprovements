@@ -1,0 +1,1 @@
+Styling related to the user title ladder widget.

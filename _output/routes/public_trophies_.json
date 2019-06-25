@@ -1,0 +1,11 @@
+{
+    "route_type": "public",
+    "route_prefix": "trophies",
+    "sub_name": "",
+    "format": ":int<trophy_id,title>/",
+    "build_class": "",
+    "build_method": "",
+    "controller": "ThemeHouse\\UserImprovements:Trophy",
+    "context": "",
+    "action_prefix": ""
+}

@@ -1,0 +1,17 @@
+{
+    "cron_class": "ThemeHouse\\UserImprovements\\Cron\\Views",
+    "cron_method": "runViewUpdate",
+    "run_rules": {
+        "day_type": "dom",
+        "dom": [
+            -1
+        ],
+        "hours": [
+            -1
+        ],
+        "minutes": [
+            35
+        ]
+    },
+    "active": true
+}

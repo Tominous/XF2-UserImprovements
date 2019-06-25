@@ -1,0 +1,9 @@
+{
+    "template": "member_macros",
+    "description": "Implement stats bar privacy.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/(<!--\\[XF:stat_pairs:above_joined]-->.*<!--\\[XF:stat_pairs:below_trophies]-->)/s",
+    "replace": "<xf:if is=\"$user.canViewTHUIProfileStatsBar()\">\n\t$0\n<xf:else />\n\t<style>.memberHeader-separator{display: none}</style>\n</xf:if>"
+}

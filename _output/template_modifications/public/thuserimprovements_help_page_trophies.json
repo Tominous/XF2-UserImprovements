@@ -1,0 +1,9 @@
+{
+    "template": "_help_page_trophies",
+    "description": "Add categories to trophy help page.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "#<div class=\"block\">(.*?)<xf:else />#s",
+    "replace": "<xf:include template=\"thuserimprovements_help_page_trophies\" /><xf:else />"
+}

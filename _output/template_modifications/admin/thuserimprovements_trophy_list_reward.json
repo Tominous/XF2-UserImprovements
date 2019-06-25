@@ -1,0 +1,9 @@
+{
+    "template": "trophy_list",
+    "description": "Add rewards form to bottom of trophy list.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/$/",
+    "replace": "\n\n<xf:include template=\"thuserimprovements_trophy_list_reward\" />"
+}

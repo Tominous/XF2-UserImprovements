@@ -1,0 +1,26 @@
+{
+    "group_name": "thuserimprovements_trophies",
+    "title": "Trophy showcase item",
+    "description": "Trophy showcase item styling",
+    "property_type": "css",
+    "css_components": [
+        "text",
+        "background",
+        "border",
+        "border_radius",
+        "padding",
+        "extra"
+    ],
+    "value_type": "",
+    "value_parameters": "",
+    "depends_on": "",
+    "value_group": "",
+    "property_value": {
+        "padding-top": "0px",
+        "padding-right": "@xf-paddingMedium",
+        "padding-bottom": "0px",
+        "padding-left": "@xf-paddingMedium",
+        "extra": "display: inline-block;\ntext-align: center;\nimg {\n\tvertical-align: middle;\n}"
+    },
+    "display_order": 1000
+}

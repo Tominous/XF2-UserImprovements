@@ -1,0 +1,24 @@
+{
+    "group_name": "thuserimprovements_trophies",
+    "title": "Trophy showcase container",
+    "description": "",
+    "property_type": "css",
+    "css_components": [
+        "text",
+        "background",
+        "border",
+        "border_radius",
+        "padding",
+        "extra"
+    ],
+    "value_type": "",
+    "value_parameters": "",
+    "depends_on": "",
+    "value_group": "",
+    "property_value": {
+        "color": "@xf-textColor",
+        "padding": "@xf-paddingMedium",
+        "extra": "display: inline-block;"
+    },
+    "display_order": 100
+}

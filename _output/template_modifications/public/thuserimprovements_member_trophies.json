@@ -1,0 +1,9 @@
+{
+    "template": "member_trophies",
+    "description": "Add trophy categories.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "#<div class=\"block\">(.*)$#s",
+    "replace": "<xf:include template=\"thuserimprovements_member_trophies\" />"
+}

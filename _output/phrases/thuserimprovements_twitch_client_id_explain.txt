@@ -1,0 +1,1 @@
+The ID that is associated with your <a href="https://dev.twitch.tv/dashboard/apps" target="_blank">Twitch application</a> for this domain.

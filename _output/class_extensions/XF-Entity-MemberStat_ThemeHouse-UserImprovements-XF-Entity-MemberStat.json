@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Entity\\MemberStat",
+    "to_class": "ThemeHouse\\UserImprovements\\XF\\Entity\\MemberStat",
+    "execute_order": 10,
+    "active": true
+}

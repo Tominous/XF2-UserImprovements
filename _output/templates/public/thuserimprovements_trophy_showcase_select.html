@@ -1,0 +1,64 @@
+<xf:title>{{ phrase('thuserimprovements_trophy_showcase_select') }}</xf:title>
+
+<xf:css src="thuserimprovements_trophy_showcase_macros.less" />
+
+<xf:form action="{{ link('members/thui-trophies/showcase-select', $xf.visitor) }}"
+		 class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:datalist>
+				<xf:foreach loop="$trophies" value="$trophy">
+					<xf:datarow>
+						<xf:cell class="dataList-cell--first">
+							<xf:checkbox name="trophy_ids[]">
+								<xf:option value="{$trophy.trophy_id}" id="trophy-{$trophy.trophy_id}" class="kl-trophy-select" selected="{$trophy.th_showcased}" />
+							</xf:checkbox>
+						</xf:cell>
+						<xf:cell class="dataList-cell--imageSmall" style="width: 48px;">
+							<a href="{{ link('trophies', $trophy.Trophy) }}" class="trophyIconItem" title="{$trophy.Trophy.title}" data-xf-init="tooltip">
+								<xf:if is="$trophy.Trophy.th_icon_type === 'fa'">
+									<i class="fa fa-{$trophy.Trophy.th_icon_value} {$trophy.Trophy.th_icon_value}"></i>
+									<xf:elseif is="$trophy.Trophy.th_icon_type === 'image'" />
+									<img src="{$trophy.Trophy.th_icon_value}"/>
+									<xf:else />
+									{$trophy.Trophy.trophy_points}
+								</xf:if>
+							</a>
+						</xf:cell>
+						<xf:cell class="dataList-cell--link dataList-cell--main" hash="{$character.character_id}" style="width: 100%">
+							<label for="trophy-{$trophy.trophy_id}">
+								<div class="dataList-mainRow">{$trophy.Trophy.title}</div>
+							</label>
+						</xf:cell>
+					</xf:datarow>
+				</xf:foreach>
+			</xf:datalist>
+		</div>
+		<div class="block-footer">
+			{{ phrase('thuserimprovements_trophies_selected:') }} <span class="selected-amount">{$amountSelected}</span><xf:if is="!$unlimited">/<span class="max-amount">{$amount}</span></xf:if>
+		</div>
+		<xf:js>
+			var selectedAmount = {$amountSelected},
+			maxAmount = {$amount};
+
+			$('.kl-trophy-select').on('change', function(event) {
+			if($(event.currentTarget).is(':checked')) {
+			selectedAmount += 1;
+			}
+			else {
+			selectedAmount -= 1;
+			}
+
+			$('.selected-amount').html(selectedAmount);
+
+			if(selectedAmount > maxAmount) {
+			$('.block-footer .selected-amount').addClass('error');
+			}
+			else {
+			$('.block-footer .selected-amount').removeClass('error');
+			}
+			});
+		</xf:js>
+		<xf:submitrow icon="save" sticky="true" />
+	</div>
+</xf:form>

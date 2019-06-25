@@ -1,0 +1,49 @@
+<xf:macro name="showcase_display" arg-user="!" arg-position="!">
+	<xf:if is="$xf.options.klUIProfileTrophyShowcase AND $user">
+		<xf:if contentcheck="true">
+			<div class="trophyShowcase trophyShowcase--{$position}">
+				<xf:if is="{{ $xf.options.klUIProfileTrophyShowcase == 3 && $user.user_id === $xf.visitor.user_id }}">
+					<a class="trophyIconItem"
+					   data-xf-init="tooltip"
+					   title="{{ phrase('th_userimprovements_edit_showcase') }}"
+					   href="{{ link('members/thui-trophies/showcase-select', $xf.visitor) }}"
+					   data-xf-click="overlay">
+						<xf:fa icon="fa-edit" />
+					</a>
+				</xf:if>
+				<xf:contentcheck>
+					<xf:if is="$xf.options.klUIProfileTrophyShowcase == 1">
+						<xf:macro name="showcase_items"
+								  arg-trophies="{$user.getTHUILatestTrophies($position)}" />
+						<xf:elseif is="$xf.options.klUIProfileTrophyShowcase == 2" />
+						<xf:macro name="showcase_items"
+								  arg-trophies="{$user.getTHUIHighestTrophies($position)}" />
+						<xf:elseif is="$xf.options.klUIProfileTrophyShowcase == 3" />
+						<xf:macro name="showcase_items"
+								  arg-trophies="{$user.getTHUIUserChoiceTrophies($position)}" />
+					</xf:if>
+				</xf:contentcheck>
+			</div>
+		</xf:if>
+	</xf:if>
+</xf:macro>
+
+<xf:macro name="showcase_items" arg-trophies="!">
+	<xf:css src="thuserimprovements_trophy_showcase_macros.less" />
+
+	<xf:foreach loop="$trophies" value="$trophy">
+		<a href="{{ link('trophies', $trophy.Trophy) }}"
+		   class="trophyIconItem"
+		   title="{$trophy.Trophy.title}"
+		   data-xf-init="tooltip">
+			<xf:if is="$trophy.Trophy.th_icon_type === 'fa'">
+				<i class="fa far fa-{$trophy.Trophy.th_icon_value} {$trophy.Trophy.th_icon_value}" 
+				   style="{$trophy.Trophy.th_icon_css}"></i>
+				<xf:elseif is="$trophy.Trophy.th_icon_type === 'image'" />
+				<img src="{$trophy.Trophy.th_icon_value}" style="{$trophy.Trophy.th_icon_css}"/>
+				<xf:else />
+				<span style="{$trophy.Trophy.th_icon_css}">{$trophy.Trophy.trophy_points}</span>
+			</xf:if>
+		</a>
+	</xf:foreach>
+</xf:macro>

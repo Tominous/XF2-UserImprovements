@@ -1,0 +1,13 @@
+{
+    "group_name": "thuserimprovements_trophies",
+    "title": "Trophy progress bar border color",
+    "description": "",
+    "property_type": "value",
+    "css_components": [],
+    "value_type": "color",
+    "value_parameters": "",
+    "depends_on": "",
+    "value_group": "",
+    "property_value": "@xf-borderColorLight",
+    "display_order": 20
+}

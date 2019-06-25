@@ -1,0 +1,1 @@
+If enabled, trophies will be shown as separate tab in the user profile instead of inside the about tab.

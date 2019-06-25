@@ -1,0 +1,1 @@
+If enabled, this will show a list of all already earned predecessor trophies in addition to the last earned trophy of that line.

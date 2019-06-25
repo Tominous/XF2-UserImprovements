@@ -1,0 +1,11 @@
+{
+    "route_type": "admin",
+    "route_prefix": "trophies",
+    "sub_name": "thui-category",
+    "format": "thui-category/:str<trophy_category_id>/",
+    "build_class": "",
+    "build_method": "",
+    "controller": "XF:Trophy",
+    "context": "trophies",
+    "action_prefix": "THUICategory"
+}

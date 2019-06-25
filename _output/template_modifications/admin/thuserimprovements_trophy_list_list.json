@@ -1,0 +1,9 @@
+{
+    "template": "trophy_list",
+    "description": "Include categories into trophy list.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "#<div class=\"block\">(.*?)<xf:else />#s",
+    "replace": "<xf:include template=\"thuserimprovements_trophy_list\" /><xf:else />"
+}

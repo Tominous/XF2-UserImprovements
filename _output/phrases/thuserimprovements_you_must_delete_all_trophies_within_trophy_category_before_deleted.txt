@@ -1,0 +1,1 @@
+You must delete all trophies with a trophy category before it can be deleted.

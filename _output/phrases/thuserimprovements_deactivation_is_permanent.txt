@@ -1,0 +1,1 @@
+Account deactivation is permanent and cannot be undone.

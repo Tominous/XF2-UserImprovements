@@ -1,0 +1,1 @@
+If enabled, your board will track all profile visits for each member, with a counter on their profile showing how often it has been visited.

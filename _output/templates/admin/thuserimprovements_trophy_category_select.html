@@ -1,0 +1,22 @@
+<xf:checkboxrow>
+	<xf:option name="th_hidden" value="1" selected="{$trophy.th_hidden}">
+		{{ phrase('thuserimprovements_hidden_trophy') }}
+	</xf:option>
+</xf:checkboxrow>
+
+<xf:selectrow name="th_predecessor" value="{$trophy.th_predecessor}"
+			  label="{{ phrase('thuserimprovements_predecessor') }}">
+	<xf:option value="0" />
+	<xf:foreach loop="$trophies" value="$predecessor">
+		<xf:option value="{$predecessor.trophy_id}">{$predecessor.title}</xf:option>
+	</xf:foreach>
+</xf:selectrow>
+
+<xf:selectrow name="th_trophy_category_id" value="{$trophy.th_trophy_category_id}"
+			  label="{{ phrase('thuserimprovements_trophy_category') }}">
+
+	<xf:option value="" />
+	<xf:foreach loop="$categories" value="$category">
+		<xf:option value="{$category.trophy_category_id}">{$category.title}</xf:option>
+	</xf:foreach>
+</xf:selectrow>

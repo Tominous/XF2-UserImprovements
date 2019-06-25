@@ -1,0 +1,55 @@
+<xf:css src="thuserimprovements_help_page_trophies.less" />
+
+<xf:if is="$trophies.uncategorized is not empty">
+	<div class="block">
+		<div class="block-container">
+			<ol class="block-body">
+				<xf:foreach loop="$trophies.uncategorized" value="$trophy">
+					<xf:macro template="thuserimprovements_trophy_macros" name="trophy_item" arg-trophy="{$trophy}" />
+				</xf:foreach>
+			</ol>
+			<div class="block-footer">
+				<xf:set var="{$trophiesEarned.uncategorized}" value="0" />
+				<xf:foreach loop="$trophies.uncategorized" value="$trophy">
+					<xf:if is="$trophy.earned">
+						<xf:set var="{$trophiesEarned.uncategorized}" value="{{$trophiesEarned.uncategorized + 1}}" />
+					</xf:if>
+				</xf:foreach>
+				{{ phrase('thuserimprovements_own_x_out_of_y_trophies_in_this_category', {
+				'earned': $trophiesEarned.uncategorized,
+				'total': count($trophies.uncategorized)
+				})}}
+			</div>
+		</div>
+	</div>
+</xf:if>
+
+<xf:foreach loop="$trophyCategories" key="$categoryId" value="$category">
+	<xf:if is="{$trophies.{$categoryId}} is not empty">
+		<div class="block">
+			<div class="block-container">
+				<h2 class="block-header">
+					{{ anchor_target('trophy_category_id' . $category.trophy_category_id) }}
+					<a href="{{ link('trophy-categories', $category) }}">{$category.title}</a>
+				</h2>
+				<ol class="block-body">
+					<xf:foreach loop="{$trophies.{$categoryId}}" value="$trophy">
+						<xf:macro template="thuserimprovements_trophy_macros" name="trophy_item" arg-trophy="{$trophy}" />
+					</xf:foreach>
+				</ol>
+				<div class="block-footer">
+					<xf:set var="{$trophiesEarned.{$categoryId}}" value="0" />
+					<xf:foreach loop="{$trophies.{$categoryId}}" value="$trophy">
+						<xf:if is="$trophy.earned">
+							<xf:set var="{$trophiesEarned.{$categoryId}}" value="{{$trophiesEarned.{$categoryId} + 1}}" />
+						</xf:if>
+					</xf:foreach>
+					{{ phrase('thuserimprovements_own_x_out_of_y_trophies_in_this_category', {
+					'earned': {$trophiesEarned.{$categoryId}},
+					'total': count({$trophies.{$categoryId}})
+					})}}
+				</div>
+			</div>
+		</div>
+	</xf:if>
+</xf:foreach>

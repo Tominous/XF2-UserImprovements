@@ -1,0 +1,1 @@
+The trophy showcase is a dedicated area in a member's profile, post bit, and tooltip that is filled with a set of trophies as defined here. The actual number of trophies shown in the showcase is permission controlled.

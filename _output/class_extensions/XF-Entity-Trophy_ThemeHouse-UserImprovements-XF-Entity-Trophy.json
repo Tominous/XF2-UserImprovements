@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Entity\\Trophy",
+    "to_class": "ThemeHouse\\UserImprovements\\XF\\Entity\\Trophy",
+    "execute_order": 10,
+    "active": true
+}

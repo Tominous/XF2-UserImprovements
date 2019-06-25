@@ -1,0 +1,12 @@
+<xf:if is="$xf.visitor->hasPermission('klUI', 'klUIChoseUsernameColor')">
+	<xf:css src="thuserimprovements_username_color_select.less" />
+
+	<div id="th_name_color_selector">
+		<xf:radiorow name="user[th_name_color_id]" value="{$xf.visitor.th_name_color_id}">
+			<xf:foreach loop="$thuiUsernameColorValues" value="$color">
+				<xf:option value="{$color}"></xf:option>
+			</xf:foreach>
+			<xf:label>{{ phrase('thuserimprovements_nickname_color') }}</xf:label>
+		</xf:radiorow>
+	</div>
+</xf:if>

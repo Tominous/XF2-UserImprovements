@@ -1,0 +1,38 @@
+<xf:macro name="trophies" arg-active="!" arg-trophies="!">
+	<xf:if is="$trophies is not empty">
+		<xf:if is="{$active.sort_order} === 'message_count'">
+			<xf:macro name="trophy_progress" arg-trophies="{$trophies}"
+					  arg-rule="messages_posted" arg-dataKey="messages"
+					  arg-progressValue="{$xf.visitor.message_count}"
+					  />
+			<xf:elseif is="{$active.sort_order} === 'reaction_score'" />
+			<xf:macro name="trophy_progress" arg-trophies="{$trophies}"
+					  arg-rule="reaction_score" arg-dataKey="reactions"
+					  arg-progressValue="{$xf.visitor.reaction_score}"
+					  />
+		</xf:if>
+	</xf:if>
+</xf:macro>
+
+<xf:macro name="trophy_progress" arg-trophies="!" arg-rule="!" arg-dataKey="!" arg-progressValue="0">
+	<xf:if contentcheck="true">
+		<div class="block">
+			<div class="block-container">
+				<div class="block-body block-row th-trophyProgressContainer">
+					<ul class="th-trophyProgressBarContainer">
+						<xf:contentcheck>
+							<xf:foreach loop="$trophies" value="$trophy">
+								<xf:macro template="thuserimprovements_trophy_progress_macros"
+										  name="trophy_progress_bar" arg-trophy="{$trophy}"
+										  arg-rule="{$rule}" arg-dataKey="{$dataKey}"
+										  arg-previousTrophy="{$previousTrophy}"
+										  arg-progressValue="{$progressValue}"/>
+								<xf:set var="$previousTrophy" value="{$trophy}" />
+							</xf:foreach>
+						</xf:contentcheck>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</xf:if>
+</xf:macro>

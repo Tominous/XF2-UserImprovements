@@ -1,0 +1,39 @@
+<xf:if is="$xf.visitor.hasPermission('klUI', 'klUIManageUsernamePrivacy')">
+	<xf:macro name="privacy_option"
+			  arg-user="{$xf.visitor}"
+			  arg-name="th_view_username_changes"
+			  arg-label="{{ phrase('thuserimprovements_view_username_changes:') }}" />
+</xf:if>
+
+<xf:if is="$xf.visitor.hasPermission('klUI', 'klUIManageStatsPrivacy')">
+	<xf:macro name="privacy_option"
+			  arg-user="{$xf.visitor}"
+			  arg-name="th_view_profile_stats"
+			  arg-label="{{ phrase('thuserimprovements_view_profile_stats:') }}" />
+</xf:if>
+
+<xf:if is="$xf.options.klUiProfileViews">
+	<xf:macro name="privacy_option"
+			  arg-user="{$xf.visitor}"
+			  arg-name="th_view_profile_views"
+			  arg-label="{{ phrase('thuserimprovements_view_profile_views:') }}" />
+</xf:if>
+
+
+<xf:macro name="privacy_option" arg-user="!" arg-name="!" arg-label="!" arg-hideEveryone="{{ false }}" arg-hideFollowed="{{ false }}">
+	<dl class="inputLabelPair">
+		<dt>{$label}</dt>
+		<dd>
+			<xf:select name="privacy[{$name}]" value="{$user.Privacy.{$name}}">
+				<xf:if is="!$hideEveryone">
+					<xf:option value="everyone">{{ phrase('all_visitors') }}</xf:option>
+				</xf:if>
+				<xf:option value="members">{{ phrase('members_only') }}</xf:option>
+				<xf:if is="!$hideFollowed">
+					<xf:option value="followed">{{ phrase('people_you_follow') }}</xf:option>
+				</xf:if>
+				<xf:option value="none">{{ phrase('nobody') }}</xf:option>
+			</xf:select>
+		</dd>
+	</dl>
+</xf:macro>

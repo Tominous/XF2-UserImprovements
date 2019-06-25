@@ -1,0 +1,19 @@
+{
+    "group_name": "misc",
+    "title": "Disabled user name",
+    "description": "Controls the richtext styling of disabled user names.",
+    "property_type": "css",
+    "css_components": [
+        "text",
+        "extra"
+    ],
+    "value_type": "",
+    "value_parameters": "",
+    "depends_on": "",
+    "value_group": "",
+    "property_value": {
+        "color": "@xf-textColorMuted",
+        "extra": "text-decoration: line-through;"
+    },
+    "display_order": 100000
+}

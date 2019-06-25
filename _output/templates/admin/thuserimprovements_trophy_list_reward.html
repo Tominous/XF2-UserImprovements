@@ -1,0 +1,31 @@
+<xf:if is="$trophies is not empty">
+	<xf:form class="block" action="{{ link('trophies/thui-reward-save') }}" ajax="true">
+		<div class="block-container">
+			<h2 class="block-header">
+				{{ phrase('thuserimprovements_reward_trophies') }}
+			</h2>
+			<div class="block-body">
+				<xf:textboxrow name="users" ac="true" label="{{ phrase('users') }}"/>
+
+				<xf:if is="$trophies.uncategorized is not empty">
+					<xf:checkboxrow name="trophies" label="{{ phrase('thuserimprovements_uncategorized_trophies') }}">
+						<xf:foreach loop="$trophies.uncategorized" value="$trophy">
+							<xf:option value="{$trophy.trophy_id}" label="{$trophy.title}" />
+						</xf:foreach>
+					</xf:checkboxrow>
+				</xf:if>
+
+				<xf:foreach loop="$trophyCategories" value="$category">
+					<xf:if is="{$trophies.{$category.trophy_category_id}} is not empty">
+						<xf:checkboxrow name="trophies" label="{$category.title}">
+							<xf:foreach loop="{$trophies.{$category.trophy_category_id}}" value="$trophy">
+								<xf:option value="{$trophy.trophy_id}" label="{$trophy.title}" />
+							</xf:foreach>
+						</xf:checkboxrow>
+					</xf:if>
+				</xf:foreach>
+			</div>
+			<xf:submitrow sticky="true" icon="save" />
+		</div>
+	</xf:form>
+</xf:if>

@@ -1,0 +1,31 @@
+<xf:title>{{ phrase('thuserimprovements_deactivate_account') }}</xf:title>
+
+<xf:wrap template="account_wrapper" />
+
+<xf:form action="{{ link('account/thui-deactivate') }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="block-row">
+				<xf:if is="$xf.visitor->hasPermission('klUI', 'klUISelfReactivate')">
+					<xf:if is="$xf.visitor->hasPermission('klUI', 'klUISelfReactivationTime') === -1">
+						{{ phrase('thuserimprovements_reactivate_account_anytime') }}
+						<xf:else />
+						{{ phrase('thuserimprovements_reactivate_account_within_x_days', {'days': $xf.visitor->hasPermission('klUI', 'klUISelfReactivationTime')}) }}
+					</xf:if>
+					<xf:else />
+					{{ phrase('thuserimprovements_deactivation_is_permanent') }}
+				</xf:if>
+			</div>
+		</div>
+		<dl class="formRow formSubmitRow formSubmitRow--sticky" data-xf-init="form-submit-row" style="height: 41.7143px;">
+			<dt></dt>
+			<dd>
+				<div class="formSubmitRow-main">
+					<div class="formSubmitRow-bar"></div>
+					<div class="formSubmitRow-controls"><button class="button button--primary button--icon"><span class="button-text">{{ phrase('thuserimprovements_deactivate_account') }}</span></button></div>
+				</div>
+			</dd>
+		</dl>
+	</div>
+	<xf:redirect />
+</xf:form>

@@ -1,0 +1,23 @@
+{
+    "group_name": "thuserimprovements_trophies",
+    "title": "Trophy showcase item - Member profile",
+    "description": "",
+    "property_type": "css",
+    "css_components": [
+        "text",
+        "background",
+        "border",
+        "border_radius",
+        "padding",
+        "extra"
+    ],
+    "value_type": "",
+    "value_parameters": "",
+    "depends_on": "",
+    "value_group": "",
+    "property_value": {
+        "font-size": "25px",
+        "extra": "min-width: 34px;\nimg {\n\tmax-height: 20px;\n}"
+    },
+    "display_order": 1200
+}

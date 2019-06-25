@@ -1,0 +1,1 @@
+If enabled, profile views will be tracked and a counter will be shown on each users profile how often his profile has been visited.

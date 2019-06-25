@@ -1,0 +1,9 @@
+{
+    "template": "member_view",
+    "description": "Add trophy showcase.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "</h1>",
+    "replace": "<xf:if is=\"$xf.options.klUIProfileShowcase\">\n\t<xf:macro name=\"showcase_display\" template=\"thuserimprovements_trophy_showcase_macros\" arg-user=\"{$user}\" arg-position=\"profile\" />\n</xf:if>\n$0"
+}

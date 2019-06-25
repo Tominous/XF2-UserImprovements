@@ -1,0 +1,1 @@
+Controls the richtext styling of disabled user names.

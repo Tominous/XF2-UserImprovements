@@ -1,0 +1,26 @@
+<hr class="formRowSep" />
+
+<xf:radiorow name="th_icon_type" value="{$trophy.th_icon_type}"
+			 label="{{ phrase('thuserimprovements_trophy_icon') }}">
+
+	<xf:option value="">{{ phrase('none') }}</xf:option>
+	<xf:option value="fa" label="{{ phrase('admin_navigation_icon') }}">
+		<xf:textbox name="th_icon_fa"
+					value="{{ $trophy.th_icon_type == 'fa' ? $trophy.th_icon_value : '' }}"
+					maxlength="{{ max_length($trophy, 'th_icon_value') }}"
+					dir="ltr" />
+	</xf:option>
+	<xf:option value="image" label="{{ phrase('image') }}">
+		<xf:textbox name="th_icon_image"
+					value="{{ $trophy.th_icon_type == 'image' ? $trophy.th_icon_value : '' }}"
+					maxlength="{{ max_length($trophy, 'th_icon_value') }}"
+					dir="ltr" />
+	</xf:option>
+</xf:radiorow>
+
+<xf:codeeditorrow name="th_icon_css" value="{$trophy.th_icon_css}"
+				mode="css" data-line-wrapping="true"
+				class="codeEditor--autoSize"
+				label="{{ phrase('thuserimprovements_icon_css') }}" />
+
+<hr class="formRowSep" />

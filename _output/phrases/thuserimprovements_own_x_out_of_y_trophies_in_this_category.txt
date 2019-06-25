@@ -1,0 +1,1 @@
+You've earned {earned} out of {total} trophies in this category.

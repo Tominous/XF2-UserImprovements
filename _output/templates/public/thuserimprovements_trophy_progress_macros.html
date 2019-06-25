@@ -1,0 +1,61 @@
+<xf:macro name="trophy_progress" arg-trophyProgressCriteria="!" arg-trophies="!" arg-selectedTrophy="" arg-progressValue="">
+	<xf:if is="$trophyProgressCriteria">
+		<div class="block">
+			<div class="block-container">
+				<div class="block-body block-row">
+					<ul class="th-trophyProgressBarContainer">
+						<xf:foreach loop="$trophies" value="$trophy">
+							<xf:macro name="trophy_progress_bar" arg-trophy="{$trophy}"
+								arg-rule="{$trophyProgressCriteria.rule}" arg-dataKey="{$trophyProgressCriteria.dataKey}"
+								arg-previousTrophy="{$previousTrophy}"
+								arg-progressValue="{{ $progressValue !== null ? $progressValue : $xf.visitor.{$trophyProgressCriteria.valueKey} }}"
+								arg-selected="{{ $selectedTrophy && $selectedTrophy.trophy_id === $trophy.trophy_id }}" />
+							<xf:set var="$previousTrophy" value="{$trophy}" />
+						</xf:foreach>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</xf:if>
+</xf:macro>
+
+<xf:macro name="trophy_progress_bar" arg-trophy="!" arg-rule="!" arg-dataKey="!" arg-previousTrophy="" arg-progressValue="0" arg-selected="{{ false }}">
+	<xf:css src="thuserimprovements_trophy_progress_bar.less" />
+	<xf:foreach loop="$trophy.user_criteria" value="$userCriteria">
+		<xf:if is="{$userCriteria.rule} === {$rule} && {$userCriteria.data.{$dataKey}}">
+			<xf:set var="$max" value="{$userCriteria.data.{$dataKey}}" />
+		</xf:if>
+	</xf:foreach>
+	<xf:if is="$previousTrophy">
+		<xf:foreach loop="$previousTrophy.user_criteria" value="$userCriteria">
+			<xf:if is="{$userCriteria.rule} === {$rule} && {$userCriteria.data.{$dataKey}}">
+				<xf:set var="$min" value="{$userCriteria.data.{$dataKey}}" />
+			</xf:if>
+		</xf:foreach>
+	</xf:if>
+	<xf:if is="$max">
+		<xf:if is="$progressValue > $min && ($max - $min) != 0">
+			<xf:if is="$progressValue < $max">
+				<xf:set var="$progress" value="{{ (($progressValue - $min) / ($max - $min)) * 100 }}" />
+			<xf:else />
+				<xf:set var="$progress" value="{{ 100 }}" />
+			</xf:if>
+		</xf:if>
+		<li class="th-trophyProgress">
+			<span class="contentRow-figure contentRow-figure--text contentRow-figure--fixedSmall">
+				<xf:macro template="thuserimprovements_trophy_macros" name="trophy" arg-trophy="{$trophy}" />
+			</span>
+			<div class="th-trophyProgressBar">
+				<div class="th-trophyProgressBar-bar{{ $progress == 100 ? ' th-trophyProgressBar-bar--full' : (!$progress ? ' th-trophyProgressBar-bar--empty' : '') }}"
+					{{ ($progress && $progress != 100) ? 'style="width: ' . $progress . '%;"' : '' }}></div>
+				<span class="th-trophyProgressBar-max">{$max|number_short(1)}</span>
+			</div>
+			<xf:if is="{$selected}">
+				<span class="th-trophyProgress-trophyTitle th-trophyProgress-trophyTitle--selected">{$trophy.title}</span>
+			<xf:else />
+				<span class="th-trophyProgress-trophyTitle"><a href="{{ link('trophies', $trophy) }}">{$trophy.title}</a></span>
+			</xf:if>
+
+		</li>
+	</xf:if>
+</xf:macro>

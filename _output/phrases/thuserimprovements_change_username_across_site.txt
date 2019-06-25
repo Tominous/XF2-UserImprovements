@@ -1,0 +1,1 @@
+Allows you to change your username across the site.

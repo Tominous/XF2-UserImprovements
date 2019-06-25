@@ -1,0 +1,5 @@
+<xf:if is="$providerData.avatar_url">
+	<img src="{$providerData.avatar_url}" width="48" alt="" />
+</xf:if>
+
+<div>{{ $providerData.username ?: phrase('unknown_account') }}</div>

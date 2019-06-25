@@ -1,0 +1,9 @@
+{
+    "template": "core.less",
+    "description": "Add provider button styling.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "{{ include('core_button.less') }}",
+    "replace": "$0\n{{ include('thuserimprovements_core_button.less') }}"
+}

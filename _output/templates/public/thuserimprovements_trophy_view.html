@@ -1,0 +1,87 @@
+<xf:if is="$trophy.trophy_points === 1">
+	<xf:set var="$trophyPoints">{{ phrase('thuserimprovements_one_trophy_point') }}</xf:set>
+<xf:else />
+	<xf:set var="$trophyPoints">{{ phrase('thuserimprovements_x_trophy_points', {'points': {$trophy.trophy_points|number_short}}) }}</xf:set>
+</xf:if>
+
+<xf:title page="{$page}">{$trophy.title} {$trophyPoints}</xf:title>
+<xf:description>{$trophy.description}</xf:description>
+
+<xf:breadcrumb href="{{ link('trophies') }}">{{ phrase('trophies') }}</xf:breadcrumb>
+<xf:if is="$trophy.THUITrophyCategory is not empty">
+	<xf:breadcrumb href="{{ link('trophy-categories', $trophy.THUITrophyCategory) }}">{$trophy.THUITrophyCategory.title}</xf:breadcrumb>
+</xf:if>
+
+<xf:css src="thuserimprovements_trophy_view.less" />
+
+<xf:macro template="thuserimprovements_trophy_progress_macros"
+	name="trophy_progress"
+	arg-trophies="{$trophies}"
+	arg-trophyProgressCriteria="{$trophyProgressCriteria}"
+	arg-progressValue="{$progressValue}"
+	arg-selectedTrophy="{$trophy}" />
+
+<div class="block">
+	<div class="block-container">
+		<h2 class="block-tabHeader block-tabHeader--trophyTabs tabs hScroller" data-xf-init="tabs h-scroller" role="tablist"
+			data-panes=".js-trophyTabPanes" data-state="replace">
+			<span class="hScroller-scroll">
+				<!--[XF:tabs:start]-->
+				<a class="tabs-tab is-active"
+					role="tab" tabindex="0" aria-controls="awarded">{{ phrase('thuserimprovements_awarded') }} ({$total})</a>
+				<!--[XF:tabs:after_awarded]-->
+				<xf:if is="{$trophyProgressCriteria.valueKey}">
+					<a class="tabs-tab"
+						role="tab" tabindex="1" aria-controls="{$trophyProgressCriteria.valueKey}">{$trophyProgressCriteria.statsPhrase}</a>
+				</xf:if>
+				<!--[XF:tabs:end]-->
+			</span>
+		</h2>
+	</div>
+</div>
+
+<ul class="block tabPanes js-trophyTabPanes">
+	<!--[XF:tab_panes:start]-->
+	<li class="is-active" role="tabpanel" id="awarded">
+		<xf:if is="$userTrophies is not empty">
+			<div class="block-container">
+				<ol class="block-body">
+					<xf:foreach loop="$userTrophies" value="$userTrophy">
+						<li class="block-row block-row--separated">
+							<xf:if is="{$trophyProgressCriteria.valueSubKey}">
+								<xf:macro template="member_list_macros"
+									name="item"
+									arg-user="{$userTrophy.User}"
+									arg-extraData="{$userTrophy.User.{$trophyProgressCriteria.valueKey}.{$trophyProgressCriteria.valueSubKey}}"
+									arg-extraDataBig="{{ true }}" />
+							<xf:elseif is="{$trophyProgressCriteria.valueKey}" />
+								<xf:macro template="member_list_macros"
+									name="item"
+									arg-user="{$userTrophy.User}"
+									arg-extraData="{$userTrophy.User.{$trophyProgressCriteria.valueKey}}"
+									arg-extraDataBig="{{ true }}" />
+							<xf:else />
+								<xf:macro template="member_list_macros"
+									name="item"
+									arg-user="{$userTrophy.User}" />
+							</xf:if>
+						</li>
+					</xf:foreach>
+				</ol>
+			</div>
+			<xf:pagenav link="trophies" data="{$trophy}" page="{$page}" perpage="{$perPage}" total="{$total}"
+				wrapperclass="block-outer block-outer--after" />
+		<xf:else />
+			<div class="blockMessage">{{ phrase('thuserimprovements_no_users_have_earned_this_trophy') }}</div>
+		</xf:if>
+	</li>
+	<!--[XF:tab_panes:after_awarded]-->
+	<xf:if is="{$trophyProgressCriteria.valueKey}">
+		<li data-href="{{ link('trophies/stats/' . $trophyProgressCriteria.valueKey, '', $trophyProgressCriteria.additionalData) }}" role="tabpanel" aria-labelledby="{$trophyProgressCriteria.valueKey}">
+			<div class="blockMessage">{{ phrase('loading...') }}</div>
+		</li>
+	</xf:if>
+	<!--[XF:tab_panes:end]-->
+</ul>
+
+<xf:widgetpos id="thuserimprovements_trophy_view_sidebar" position="sidebar" />

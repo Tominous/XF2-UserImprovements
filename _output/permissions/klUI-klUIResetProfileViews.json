@@ -1,0 +1,6 @@
+{
+    "permission_type": "flag",
+    "interface_group_id": "klUI",
+    "display_order": 10000,
+    "depend_permission_id": ""
+}

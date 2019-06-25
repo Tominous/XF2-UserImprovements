@@ -1,0 +1,9 @@
+{
+    "template": "account_details",
+    "description": "Add reset view counter option.",
+    "execution_order": 100,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:if is=\"{{ $xf.visitor.Profile.dob_day && $xf.visitor.Profile.dob_month && $xf.visitor.Profile.dob_year }}\">",
+    "replace": "<xf:if is=\"$xf.options.klUiProfileViews && $xf.visitor.hasPermission('klUI', 'klUIResetProfileViews')\">\n\t\t<xf:checkboxrow>\n\t\t<xf:option value=\"1\" name=\"reset_profile_views\"\n\t\t\tlabel=\"{{ phrase('thuserimprovements_reset_profile_views') }}\">\n\t\t</xf:option>\n\t</xf:checkboxrow>\n</xf:if>\n<hr class=\"formRowSep\" />\n$0"
+}

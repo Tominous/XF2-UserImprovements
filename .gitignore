@@ -1,0 +1,6 @@
+/.idea
+vendor/
+_data/
+_releases/
+_metadata.json
+/composer.phar

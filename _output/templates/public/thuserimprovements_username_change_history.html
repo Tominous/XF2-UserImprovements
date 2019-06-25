@@ -1,0 +1,15 @@
+<xf:if is="$user.canViewTHUIUsernameHistory() && $username_changes.count()">
+	<div class="buttonGroup-buttonWrapper kl-ui-username-change-button-wrapper">
+		<xf:button class="button--link menuTrigger" data-xf-click="menu" aria-expanded="false" aria-haspopup="true"></xf:button>
+		<div class="menu" data-menu="menu" aria-hidden="true">
+			<div class="menu-content kl-username-change-menu-content">
+				<h4 class="menu-header">{{ phrase('thuserimprovements_also_known_as') }}</h4>
+				<!--[XF:find_menu:top]-->
+				<xf:foreach loop="$username_changes" value="$record">
+					<dl class="menu-linkRow"><dt>{$record.old_username}</dt><dd><span class="record-until">{{ phrase('thuserimprovements_until') }}</span> <xf:if is="$xf.visitor.hasPermission('klUI', 'klUIViewNameChangeTime')"><xf:date time="$record.change_date" /></xf:if></dd></dl>
+				</xf:foreach>
+			</div>
+		</div>
+	</div>
+	<xf:css src="thuserimprovements_username_change_history.less" />
+</xf:if>

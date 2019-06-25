@@ -1,0 +1,9 @@
+{
+    "template": "account_details",
+    "description": "Add account username color selection.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:if is=\"$xf.visitor.canUploadAvatar()\">",
+    "replace": "<xf:include template=\"thuserimprovements_username_color_select\" />\n$0"
+}

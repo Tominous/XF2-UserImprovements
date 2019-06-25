@@ -1,0 +1,9 @@
+{
+    "template": "app_username_styles.less",
+    "description": "Add username colors to stylesheet.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/$/",
+    "replace": "<xf:include template=\"thuserimprovements_app_username_styles.less\" />\n$0"
+}

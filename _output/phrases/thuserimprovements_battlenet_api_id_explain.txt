@@ -1,0 +1,1 @@
+The ID that is associated with your <a href="https://dev.battle.net/apps/mykeys" target="_blank">Battle.net application</a> for this domain.

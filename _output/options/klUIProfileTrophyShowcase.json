@@ -1,0 +1,12 @@
+{
+    "edit_format": "radio",
+    "edit_format_params": "0={{ phrase('thuserimprovements_disabled') }}\n1={{ phrase('thuserimprovements_latest_trophies') }}\n2={{ phrase('thuserimprovements_highest_points_trophies') }}\n3={{ phrase('thuserimprovements_users_choice') }}",
+    "data_type": "unsigned_integer",
+    "sub_options": [],
+    "validation_class": "",
+    "validation_method": "",
+    "default_value": "0",
+    "relations": {
+        "thuserimprovements": 100
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "template": "member_view",
+    "description": "Add trophies tab.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<!--[XF:tab_panes:end]-->",
+    "replace": "$0\n<xf:if is=\"$xf.options.klUISeparateTrophyTab\">\n\t<li data-href=\"{{ link('members/trophies', $user) }}\" role=\"tabpanel\" aria-labelledby=\"trophies\">\n\t\t<div class=\"blockMessage\">{{ phrase('loading...') }}</div>\n\t</li>\n</xf:if>"
+}

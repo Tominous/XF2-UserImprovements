@@ -1,0 +1,13 @@
+<xf:if is="!$providerData">
+	<xf:inforow>
+		{{ phrase('this_will_test_x_connected_account_provider_explain', {'title': $provider.title}) }}
+	</xf:inforow>
+
+	<xf:formrow label="{{ phrase('client_id') }}">{$provider.options.client_id}</xf:formrow>
+<xf:else />
+	<xf:inforow rowtype="confirm"><strong>{{ phrase('test_passed') }}</strong></xf:inforow>
+
+	<xf:formrow label="{{ phrase('name') }}">{{ $providerData.username ?: phrase('n_a') }}</xf:formrow>
+
+	<xf:formrow label="{{ phrase('email') }}">{{ $providerData.email ?: phrase('n_a') }}</xf:formrow>
+</xf:if>

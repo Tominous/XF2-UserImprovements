@@ -1,0 +1,9 @@
+{
+    "template": "member_tooltip",
+    "description": "Add trophy showcase.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<div class=\"memberTooltip-info\">",
+    "replace": "$0\n<xf:if is=\"$xf.options.thuserimprovements_member_tooltip_showcase\">\n\t<xf:macro name=\"showcase_display\" template=\"thuserimprovements_trophy_showcase_macros\" arg-user=\"{$user}\" arg-position=\"tooltip\" />\n</xf:if>"
+}

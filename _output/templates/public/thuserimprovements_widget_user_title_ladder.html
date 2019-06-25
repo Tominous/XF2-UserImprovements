@@ -1,0 +1,17 @@
+<xf:css src="thuserimprovements_widget_user_title_ladder.less" />
+
+<xf:if is="$xf.visitor.user_id">
+	<div class="block"{{ widget_data($widget) }}>
+		<div class="block-container">
+			<h3 class="block-minorHeader">{$title}</h3>
+			<div class="block-body block-row">
+				<div class="user-title-ladder-progress--container" title="{$tooltip}" data-xf-init="tooltip">
+					<div class="user-title-ladder-progress--bar" style="width: {$progress}%">
+						&nbsp;<xf:if is="$progress >= 50">{$progress}%</xf:if>
+					</div>
+					<xf:if is="$progress < 50">{$progress}%</xf:if>
+				</div>
+			</div>
+		</div>
+	</div>
+</xf:if>

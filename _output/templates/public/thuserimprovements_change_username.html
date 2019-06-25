@@ -1,0 +1,21 @@
+<xf:if is="$canTHUIChangeName">
+	<xf:textboxrow name="user[username]" value="{$xf.visitor.username}"
+				   maxlength="{{ max_length($xf.visitor, 'user_name') }}"
+				   label="{{ phrase('user_name') }}"
+				   explain="{{ phrase('thuserimprovements_change_username_across_site') }}" />
+<xf:else />
+	<xf:if is="$nextTHUIChangeOn">
+		<dl class="formRow formRow--input">
+			<dt>
+				<div class="formRow-labelWrapper">
+					<label class="formRow-label">{{ phrase('user_name') }}</label></div>
+			</dt>
+			<dd>
+				<div>
+					{{ phrase('thuserimprovements_next_change_on', {'time': date_time($nextTHUIChangeOn)}) }}
+				</div>
+				<div class="formRow-explain">{{ phrase('thuserimprovements_change_username_across_site') }}</div>
+			</dd>
+		</dl>
+	</xf:if>
+</xf:if>

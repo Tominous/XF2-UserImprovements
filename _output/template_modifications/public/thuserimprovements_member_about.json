@@ -1,0 +1,9 @@
+{
+    "template": "member_about",
+    "description": "Categorize trophies on member_about page.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "#<h4 class=\"block-textHeader\">{{ phrase\\('trophies'\\) }}</h4>(.*?)</ol>#s",
+    "replace": "<xf:include template=\"thuserimprovements_member_about\" />"
+}

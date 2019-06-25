@@ -1,0 +1,9 @@
+{
+    "template": "member_view",
+    "description": "Add username change history.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:username user=\"{$user}\" rich=\"true\" href=\"\" />",
+    "replace": "$0\n<xf:include template=\"thuserimprovements_username_change_history\" />"
+}

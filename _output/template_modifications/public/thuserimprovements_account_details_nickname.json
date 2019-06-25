@@ -1,0 +1,9 @@
+{
+    "template": "account_details",
+    "description": "Add nickname change option.",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:if is=\"$xf.visitor.canUploadAvatar()\">",
+    "replace": "<xf:include template=\"thuserimprovements_change_username\" />\n$0"
+}

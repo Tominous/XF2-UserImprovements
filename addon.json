@@ -1,0 +1,19 @@
+{
+    "legacy_addon_id": "",
+    "title": "[TH] User Improvements",
+    "description": "Take users and trophies to the level of functionality they deserve.",
+    "version_id": 1030098,
+    "version_string": "1.3.0 Patch Level 8",
+    "dev": "ThemeHouse",
+    "dev_url": "https://www.themehouse.com",
+    "faq_url": "",
+    "support_url": "https://www.themehouse.com/help",
+    "extra_urls": [],
+    "require": {
+        "XF": [
+            2010010,
+            "XenForo 2.1.0+"
+        ]
+    },
+    "icon": "icon.png"
+}
